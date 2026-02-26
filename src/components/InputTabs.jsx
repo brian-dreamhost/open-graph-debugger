@@ -9,14 +9,14 @@ export default function InputTabs({ activeTab, setActiveTab, url, setUrl, htmlIn
       <div className="flex border-b border-metal/20">
         <button
           onClick={() => setActiveTab('url')}
-          className={`flex-1 px-6 py-4 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-azure focus-visible:ring-inset ${
+          className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-azure focus-visible:ring-inset ${
             activeTab === 'url'
               ? 'text-white border-b-2 border-azure bg-azure/5'
               : 'text-galactic hover:text-cloudy'
           }`}
         >
           <span className="flex items-center justify-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 flex-shrink-0" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
             </svg>
             Fetch by URL
@@ -24,14 +24,14 @@ export default function InputTabs({ activeTab, setActiveTab, url, setUrl, htmlIn
         </button>
         <button
           onClick={() => setActiveTab('html')}
-          className={`flex-1 px-6 py-4 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-azure focus-visible:ring-inset ${
+          className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-azure focus-visible:ring-inset ${
             activeTab === 'html'
               ? 'text-white border-b-2 border-azure bg-azure/5'
               : 'text-galactic hover:text-cloudy'
           }`}
         >
           <span className="flex items-center justify-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 flex-shrink-0" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
             </svg>
             Paste HTML
@@ -40,7 +40,7 @@ export default function InputTabs({ activeTab, setActiveTab, url, setUrl, htmlIn
       </div>
 
       {/* Tab content */}
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         {activeTab === 'url' ? (
           <div>
             <label className="block text-sm font-medium text-cloudy mb-2">
@@ -58,7 +58,7 @@ export default function InputTabs({ activeTab, setActiveTab, url, setUrl, htmlIn
               <button
                 onClick={onFetch}
                 disabled={loading || !url.trim()}
-                className="bg-azure hover:bg-azure-hover disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg px-6 py-3 font-semibold text-sm transition-colors flex items-center gap-2 whitespace-nowrap"
+                className="bg-azure hover:bg-azure-hover disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg px-6 py-3 font-semibold text-sm transition-colors flex items-center gap-2 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-azure focus:ring-offset-2 focus:ring-offset-abyss"
               >
                 {loading ? (
                   <>
@@ -99,7 +99,7 @@ export default function InputTabs({ activeTab, setActiveTab, url, setUrl, htmlIn
               <button
                 onClick={onParseHtml}
                 disabled={!htmlInput.trim()}
-                className="bg-azure hover:bg-azure-hover disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg px-6 py-3 font-semibold text-sm transition-colors flex items-center gap-2"
+                className="bg-azure hover:bg-azure-hover disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg px-6 py-3 font-semibold text-sm transition-colors flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-azure focus:ring-offset-2 focus:ring-offset-abyss"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z" />

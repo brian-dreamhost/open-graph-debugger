@@ -16,14 +16,14 @@ export default function AuditPanel({ audit }) {
       {/* Header / toggle */}
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-white/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-azure focus-visible:ring-inset"
+        className="w-full flex flex-wrap items-center gap-x-3 gap-y-2 px-4 sm:px-6 py-4 text-left hover:bg-white/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-azure focus-visible:ring-inset"
       >
-        <div className="flex items-center gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-azure">
+        <div className="flex items-center gap-3 flex-1 min-w-0">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-azure flex-shrink-0" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
           </svg>
           <span className="font-semibold text-white">Tag Audit</span>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             {issues.length > 0 && (
               <span className="text-xs bg-coral/20 text-coral border border-coral/30 rounded-full px-2 py-0.5">
                 {issues.length} issue{issues.length !== 1 ? 's' : ''}
@@ -41,7 +41,7 @@ export default function AuditPanel({ audit }) {
             )}
           </div>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-shrink-0">
           <span className={`text-sm font-bold ${scoreColor}`}>{score}/{total} tags complete</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,8 @@ export default function AuditPanel({ audit }) {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className={`w-5 h-5 text-galactic transition-transform ${open ? 'rotate-180' : ''}`}
+            className={`w-5 h-5 text-galactic transition-transform flex-shrink-0 ${open ? 'rotate-180' : ''}`}
+            aria-hidden="true"
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
           </svg>
@@ -57,7 +58,7 @@ export default function AuditPanel({ audit }) {
       </button>
 
       {open && (
-        <div className="px-6 pb-6 border-t border-metal/20 animate-fadeIn">
+        <div className="px-4 sm:px-6 pb-4 sm:pb-6 border-t border-metal/20 animate-fadeIn">
           {/* Score bar */}
           <div className="mt-4 mb-5">
             <div className="flex justify-between text-xs text-galactic mb-1">
