@@ -17,6 +17,14 @@ export default function App() {
   const [tags, setTags] = useState(null)
   const [audit, setAudit] = useState(null)
 
+  function fillTestData() {
+    setActiveTab('url')
+    setUrl('https://www.dreamhost.com')
+    setError(null)
+    setTags(null)
+    setAudit(null)
+  }
+
   async function fetchAndAnalyze(inputUrl) {
     const trimmed = inputUrl.trim()
     if (!trimmed) return
@@ -82,6 +90,17 @@ export default function App() {
             </div>
           </div>
         </header>
+
+        {/* Fill Test Data */}
+        <div className="flex justify-end mb-4">
+          <button
+            type="button"
+            onClick={fillTestData}
+            className="px-3 py-1.5 text-xs font-mono bg-prince/20 text-prince border border-prince/30 rounded hover:bg-prince/30 transition-colors focus:outline-none focus:ring-2 focus:ring-prince focus:ring-offset-2 focus:ring-offset-abyss"
+          >
+            Fill Test Data
+          </button>
+        </div>
 
         {/* Input section */}
         <div className="mb-10">
